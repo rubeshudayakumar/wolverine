@@ -59,6 +59,32 @@ body{
     display: flex;
     justify-content: space-between;
 }
+.current-time{
+    margin: 24px 30px;
+    font-size: 18px;
+    
+}
+.wish{
+    margin-top: 18px;
+    margin-left: -40px;
+    font-weight: 200;
+    font-style: italic;
+}
+.weather-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dash-board-display{
+    color: #D6DCDD;
+}
+.weather-container{
+    margin-right: 30px;
+    margin-top: 18px;
+}
+.weather-status{
+    font-size: 6px;   
+}
 /* css for generic button and other button styles */
 .btn{
     cursor: pointer;
