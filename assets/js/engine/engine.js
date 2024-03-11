@@ -11,6 +11,11 @@ const startEngine = (carAudio) => {
     carAudio.attr("loop", true);
     carAudio[0].play();
   }, 2500);
+  const powerBtn = $(".power-on-btn");
+  powerBtn.addClass("clicked");
+  setTimeout(() => {
+    powerBtn.removeClass("clicked");
+  }, 1000);
 };
 
 const offEngineRemoveKey = (carAudio) => {

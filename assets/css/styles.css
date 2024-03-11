@@ -26,6 +26,9 @@ body{
     height: 212px;
     width: 766px;
 }
+.dash-board-initial{
+    display: none;
+}
 .start-dash-board-container{
     position: absolute;
     bottom: 40px;
@@ -46,7 +49,16 @@ body{
     font-weight: 500;
     font-style: italic;
 }
-
+.steering-container img{
+    position: absolute;
+    bottom: -73px;
+    right: 32px;
+    width: 30%;
+}
+.time-container{
+    display: flex;
+    justify-content: space-between;
+}
 /* css for generic button and other button styles */
 .btn{
     cursor: pointer;
@@ -60,9 +72,13 @@ body{
     border-radius: 100%;
    background-color: #000;
 }
-.power-on-btn{
+.power-on-btn{ 
     border: 5px solid #39BF03;
     color: #39BF03;
     top: 40px;
     left: 350px;
+}
+.clicked{
+    border: 5px solid #FBFE7B;
+    color: #FBFE7B;
 }

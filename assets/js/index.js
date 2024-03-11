@@ -1,12 +1,15 @@
 import engine from "./engine/engine.js";
 import { DOUBLE_INPUT_KEYS } from "./constants/appConstants.js";
+import Car from "./states/car.js";
+import { getWeather } from "./api/weather.js";
 
 $(document).ready(() => {
-  $("body").keyup(function () {});
+  const weatherData = getWeather();
+  const car = new Car(weatherData);
 
   var lastKeyPressTime = 0;
   var lastKeyCode = null;
-  var timeout = 300;
+  const timeout = 300;
 
   const keyActions = {
     s: engine.start,
@@ -22,7 +25,7 @@ $(document).ready(() => {
       DOUBLE_INPUT_KEYS.includes(e.key)
     ) {
       keyActions[e.key](carAudio);
-    } else {
+    } else if (!DOUBLE_INPUT_KEYS.includes(e.key)) {
       keyActions[e.key](carAudio);
     }
     lastKeyPressTime = currentTime;
