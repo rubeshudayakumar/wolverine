@@ -1,3 +1,6 @@
+import engine from "./engine/engine.js";
+import { DOUBLE_INPUT_KEYS } from "./constants/appConstants.js";
+
 $(document).ready(() => {
   $("body").keyup(function () {});
 
@@ -6,11 +9,9 @@ $(document).ready(() => {
   var timeout = 300;
 
   const keyActions = {
-    s: startEngine,
-    e: offEngineRemoveKey,
+    s: engine.start,
+    e: engine.off,
   };
-
-  const doubleInputKeys = ["e"];
 
   $(document).on("keydown", function (e) {
     const carAudio = $("#car-audio");
@@ -18,7 +19,7 @@ $(document).ready(() => {
     if (
       e.which == lastKeyCode &&
       currentTime - lastKeyPressTime < timeout &&
-      doubleInputKeys.includes(e.key)
+      DOUBLE_INPUT_KEYS.includes(e.key)
     ) {
       keyActions[e.key](carAudio);
     } else {
@@ -28,19 +29,3 @@ $(document).ready(() => {
     lastKeyCode = e.which;
   });
 });
-
-const startEngine = (carAudio) => {
-  carAudio.attr("src", "../assets/audio/car-start.mp3");
-  carAudio[0].play();
-  setTimeout(() => {
-    carAudio.attr("src", "../assets/audio/car-idle.mp3");
-    carAudio.attr("loop", true);
-    carAudio[0].play();
-  }, 2500);
-};
-
-const offEngineRemoveKey = (carAudio) => {
-  carAudio.attr("src", "../assets/audio/car-off.mp3");
-  carAudio.attr("loop", false);
-  carAudio[0].play();
-};
