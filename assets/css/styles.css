@@ -1,3 +1,68 @@
+/* globals */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
 body{
-    color: red;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+}
+
+/* image styles */
+.car{
+    margin: 0 auto;
+    height: 100vh;
+}
+
+/* dashboard styles */
+
+.dash-board{
+    position: absolute;
+    top: 385px;
+    right: 481px;
+    height: 212px;
+    width: 766px;
+}
+.start-dash-board-container{
+    position: absolute;
+    bottom: 40px;
+    left: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 8px;
+}
+.start-heading,.start-text{
+    color: #fff;
+}
+.start-heading{
+    font-weight: 500;
+}
+.start-text{
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* css for generic button and other button styles */
+.btn{
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+   background-color: #000;
+}
+.power-on-btn{
+    border: 5px solid #39BF03;
+    color: #39BF03;
+    top: 40px;
+    left: 350px;
 }
