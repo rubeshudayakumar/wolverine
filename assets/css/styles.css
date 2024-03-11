@@ -17,8 +17,47 @@ body{
     height: 100vh;
 }
 
-/* dashboard styles */
+/* styles for car stat */
+.car-stat{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 32px;
+}
+.speed-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.speedometer{
+    font-size: 50px;
+}
+.gas-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 24px;
+}
+.gas-litre-count{
+    font-size: 35px;
+}
+.gas-unit{
+    font-size: 10px;
+}
+.gas-bar-outline{
+    width: 50px;
+    height: 5px;
+    border: 1px solid #9EA3AF;
+    border-radius: 2px;
+    margin-top: 6px;
+}
+.gas-bar{
+    background-color: #3CA24C;
+    width: 60%;
+    height: 3px;
+}
 
+/* dashboard styles */
 .dash-board{
     position: absolute;
     top: 385px;
@@ -85,6 +124,8 @@ body{
 .weather-status{
     font-size: 6px;   
 }
+
+
 /* css for generic button and other button styles */
 .btn{
     cursor: pointer;
