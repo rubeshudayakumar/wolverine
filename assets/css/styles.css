@@ -149,3 +149,35 @@ body{
     border: 5px solid #FBFE7B;
     color: #FBFE7B;
 }
+
+/* Styles for Car Controls */
+.car-controls{
+    position: absolute;
+    bottom: 0;
+    width: 1065px;
+    height: 245px;
+    /* background-color: red; */
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+button{
+    background-color: #3D5F67;
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    margin: 10px;
+    border: 5px solid #4C6F7B;
+    padding: 5px;
+}
+.electrical-controls{
+    display: flex;
+    justify-content: space-between;
+}
+.mechanical-controls{
+    display: flex;
+    justify-content: space-between;
+}
+img{
+    width: 100%;
+}
