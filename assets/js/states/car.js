@@ -2,7 +2,7 @@ import { getCurrentTime } from "../utils/dateUtils.js";
 
 let instance;
 class Car {
-  constructor(weather) {
+  constructor() {
     if (instance) {
       return instance;
     }
@@ -10,7 +10,6 @@ class Car {
       fuel: 60,
       time: getCurrentTime(),
       speed: 0,
-      weather: weather,
     };
     instance = this;
   }

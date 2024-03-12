@@ -3,9 +3,8 @@ import { DOUBLE_INPUT_KEYS } from "./constants/appConstants.js";
 import Car from "./states/car.js";
 import { getWeather } from "./api/weather.js";
 
-$(document).ready(() => {
-  const weatherData = getWeather();
-  const car = new Car(weatherData);
+$(document).ready(async () => {
+  const weatherData = await getWeather();
 
   var lastKeyPressTime = 0;
   var lastKeyCode = null;
