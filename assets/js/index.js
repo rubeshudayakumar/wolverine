@@ -20,6 +20,7 @@ $(document).ready(async () => {
     r: engine.refill,
     c: controls.mirror,
     m: controls.music,
+    l: controls.light,
   };
 
   TweenMax.set(".road", {

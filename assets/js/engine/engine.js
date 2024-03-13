@@ -85,7 +85,10 @@ const offEngineRemoveKey = (carAudio) => {
     controls.stop();
   }, 2000);
   clearInterval(fuelConsumption);
-
+  const lightContainer = $(".head-light-container");
+  if (lightContainer.hasClass("light-toggle")) {
+    $(".head-light-container").removeClass("light-toggle");
+  }
   engine.setState({ isEngineOn: false });
 };
 

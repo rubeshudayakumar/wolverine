@@ -9,6 +9,7 @@ const controls = {
   stop: () => stop(),
   mirror: () => mirror(),
   music: () => music(),
+  light: () => light(),
 };
 
 let $speed = 0.9;
@@ -18,6 +19,7 @@ let playbackRate = 1;
 let isAccelerated = false;
 let $carSpeed = 40;
 let isMusicOn = false;
+let isHeadLightOn = false;
 
 const accelerate = () => {
   const engine = new Engine();
@@ -233,6 +235,24 @@ const music = () => {
     $("#car-music").attr("src", "./assets/audio/car-music.mp3");
     $("#car-music")[0].play();
     isMusicOn = true;
+  }
+};
+
+const light = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
+  if (isHeadLightOn) {
+    $(".light-button").removeClass("clicked");
+    $(".light-button > img").attr("src", "../assets/icons/light-off.png");
+    $(".head-light-container").toggleClass("light-toggle");
+    isHeadLightOn = false;
+  } else {
+    $(".light-button").addClass("clicked");
+    $(".light-button > img").attr("src", "../assets/icons/light-on.png");
+    $(".head-light-container").toggleClass("light-toggle");
+    isHeadLightOn = true;
   }
 };
 

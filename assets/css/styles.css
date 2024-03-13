@@ -257,3 +257,31 @@ img{
     display: flex;
     align-items: center;
 }
+
+.head-light-container{
+    position: absolute;
+    display: none;
+    justify-content: space-between;
+    width: 457px;
+    top: 292px;
+    left: 635px;
+}
+.head-light-left{
+    height: 0;
+    width: 140px;
+    border-top: 91px solid #FBFE7B;
+    border-left: 29px solid transparent;
+    border-right: 60px solid transparent;
+    opacity: 0.5;
+}
+.head-light-right{
+    height: 0;
+    width: 140px;
+    border-top: 91px solid #FBFE7B;
+    border-left: 29px solid transparent;
+    border-right: 60px solid transparent;
+    opacity: 0.5;
+}
+.light-toggle{
+    display: flex;
+}
