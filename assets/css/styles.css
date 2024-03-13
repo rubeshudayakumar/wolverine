@@ -8,12 +8,18 @@
 body{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #000;
 }
 
 /* image styles */
 .car{
+    width: 100%;
+    object-fit: contain;
+}
+.car-image-container{
     margin: 0 auto;
+    width: 62%;
     height: 100vh;
 }
 
@@ -186,16 +192,14 @@ img{
 }
 
 .wrap{
-    
     position: absolute;
-    top:300px;
-    left:290px;
-    width: 1150px;
-    z-index: -1;
-    height: 400px;
-    background: #024E56;
+    top: 286px;
+    left: 699px;
+    width: 318px;
+    z-index: 1;
+    height: 98px;
+    background: #07565D;
     overflow: hidden;
-    
 }
 .road{
     width: 30px;

@@ -21,6 +21,7 @@ const startEngine = (carAudio) => {
 
   const car = new Car();
   setFuel(car.getState().fuel);
+  $(".speaker-button").attr("src", "../assets/audio/volume-2.png");
 
   $(".current-time").text(car.getState().time);
   $(".gas-litre-count").text(car.getState().fuel);

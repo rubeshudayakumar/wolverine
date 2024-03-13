@@ -38,65 +38,69 @@
                 </div>
             </div>
         </div>
-        <image class="car" src="./assets/images/car-non-bg.png"/>
-        <section class="dash-board dash-board-initial">
-            <span class="btn power-on-btn">
-                <i class="fa-solid fa-power-off"></i>
-            </span> 
-            <div class="start-dash-board-container">
-                <h3 class="start-heading">ENGINE ON</h3>
-                <p class="start-text">Let the game begins..! Have a safe drive</p>
-            </div>
-        </section>
-        <section class="dash-board dash-board-display">
-            <div class="time-container">
-                <div class="current-time"></div>
-                <div class="wish">Good Evening..! Rubesh & Joel</div>
-                <div class="weather-container">
-                    <div class="temperature">-</div>
-                    <div class="weather-status">-</div>
+        <div class="car-image-container">
+            <image class="car" src="./assets/images/car-bg.png"/>
+            <section class="dash-board dash-board-initial">
+                <span class="btn power-on-btn">
+                    <i class="fa-solid fa-power-off"></i>
+                </span> 
+                <div class="start-dash-board-container">
+                    <h3 class="start-heading">ENGINE ON</h3>
+                    <p class="start-text">Let the game begins..! Have a safe drive</p>
                 </div>
-            </div>
-            <div class="car-stat">
-                <div class="gas-container">
-                    <div class="gas-litre-count"></div>
-                    <div class="gas-unit">Ltrs</div>
-                    <div class="gas-bar-outline">
-                        <div class="gas-bar"></div>
+            </section>
+            <section class="dash-board dash-board-display">
+                <div class="time-container">
+                    <div class="current-time"></div>
+                    <div class="wish">Good Evening..! Rubesh & Joel</div>
+                    <div class="weather-container">
+                        <div class="temperature">-</div>
+                        <div class="weather-status">-</div>
                     </div>
                 </div>
-                <div class="speed-container">
-                    <div class="speedometer">170</div>
-                    <div class="speed-unit">Kmph</div>
+                <div class="car-stat">
+                    <div class="gas-container">
+                        <div class="gas-litre-count"></div>
+                        <div class="gas-unit">Ltrs</div>
+                        <div class="gas-bar-outline">
+                            <div class="gas-bar"></div>
+                        </div>
+                    </div>
+                    <div class="speed-container">
+                        <div class="speedometer">170</div>
+                        <div class="speed-unit">Kmph</div>
+                    </div>
+                    <div class="steering-container">
+                        <img src="/assets/images/steering-wheel.png" class="steering-wheel" alt="steering-wheel"/>
+                    </div>
                 </div>
-                <div class="steering-container">
-                    <img src="/assets/images/steering-wheel.png" class="steering-wheel" alt="steering-wheel"/>
-                </div>
-            </div>
-        </section>
-        <section class="car-controls">
-            <div class="electrical-controls">
-                <div>
-                    <button class="power-button"><i class="fa-solid fa-power-off"></i></button>
-                </div>
-                <div>
-                    <button class="speaker-button"><img src="/assets/icons/volume.png"/></button>
-                    <button class="nitro-button"><img src="/assets/icons/nitro-power-orange.png"/></button>
-                </div>
-            </div> 
-            <div class="mechanical-controls">
-                <div>
-                    <button class="break-button"><img src="/assets/icons/brake.png"/></button>
-                    <button class="accelator-button"><img src="/assets/icons/accelerator.png"/></button>
-                </div>
-                <div>
-                    <button class="left-button"><img src="/assets/icons/left-arrow.png"/></button>
-                    <button class="right-button"><img src="/assets/icons/right-arrow.png"/></button>
-                </div>
-            </div> 
-        </section>
+            </section>
+            <section class="car-controls">
+                <div class="electrical-controls">
+                    <div>
+                        <button class="power-button"><i class="fa-solid fa-power-off"></i></button>
+                    </div>
+                    <div>
+                        <button class="speaker-button"><img src="/assets/icons/volume.png"/></button>
+                        <button class="nitro-button"><img src="/assets/icons/nitro-power-orange.png"/></button>
+                    </div>
+                </div> 
+                <div class="mechanical-controls">
+                    <div>
+                        <button class="accelator-button"><img src="/assets/icons/accelerator.png"/></button>
+                        <button class="break-button"><img src="/assets/icons/brake.png"/></button> 
+                    </div>
+                    <div>
+                        <button class="left-button"><img src="/assets/icons/left-arrow.png"/></button>
+                        <button class="right-button"><img src="/assets/icons/right-arrow.png"/></button>
+                    </div>
+                </div> 
+            </section>
+        </div>
+        
     </div>    
     <audio id="car-audio"></audio>
+    <audio id="car-horn" src="./assets/audio/car-horn.mp3"></audio>
     <script src="./assets/js/index.js" type="module"></script>
 </body>
 </html>

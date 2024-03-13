@@ -1,11 +1,11 @@
 import engine from "./engine/engine.js";
 import { DOUBLE_INPUT_KEYS } from "./constants/appConstants.js";
-import Car from "./states/car.js";
 import { getWeather } from "./api/weather.js";
 import controls from "./car/controls.js";
+import { getCurrentTime } from "./utils/dateUtils.js";
 
 $(document).ready(async () => {
-  const weatherData = await getWeather();
+  getWeather();
   var lastKeyPressTime = 0;
   var lastKeyCode = null;
   const timeout = 300;
@@ -14,26 +14,31 @@ $(document).ready(async () => {
     e: engine.off,
     a: controls.accelerate,
     b: controls.brake,
+    h: controls.horn,
   };
 
-  TweenMax.set('.road', {
-    perspective: 300
-})
+  TweenMax.set(".road", {
+    perspective: 300,
+  });
 
-TweenMax.set('.line', {
-    transformOrigin: 'center top',
+  TweenMax.set(".line", {
+    transformOrigin: "center top",
     rotationX: 58,
-    scale: .25
-})
-TweenMax.to('.line', 2, {
+    scale: 0.25,
+  });
+  TweenMax.to(".line", 2, {
     rotationY: 0,
     yoyo: true,
-    ease: Power2.easeInOut
-})
+    ease: Power2.easeInOut,
+  });
 
   var rotateInterval = false;
   var leftInterval;
   var rightInterval;
+
+  setInterval(() => {
+    $(".current-time").text(getCurrentTime());
+  }, 1000 * 60);
 
   $(document).on("keydown", function (e) {
     if (e.keyCode == 37 && !rotateInterval) {
@@ -48,6 +53,12 @@ TweenMax.to('.line', 2, {
       clearInterval(leftInterval);
       rotateInterval = false;
       $(".left-button").removeClass("clicked");
+    }
+    if (e.keyCode == 65) {
+      $(".accelator-button").removeClass("clicked");
+    }
+    if (e.keyCode == 66) {
+      $(".break-button").removeClass("clicked");
     }
   });
 
