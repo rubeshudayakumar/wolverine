@@ -224,17 +224,21 @@ img{
 }
 
 #container {
+    display: none;
     max-width: 80vw;
     max-height: 80vh;
     position: absolute;
-    top:63px;
-    left: 714px;
-    width:305px;
+    top: 48px;
+    left: 675px;
+    width: 305px;
     height: 200px;
   }
   #player {
-    width: 305px;
-    height: 150px;
+    width: 360px;
+    height: 171px;
+    object-fit: cover;
+    border-radius: 21%;
+    border: 4px solid #000;
   }
   #output {
     display: none;
