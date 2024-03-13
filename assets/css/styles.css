@@ -143,10 +143,6 @@ body{
     top: 40px;
     left: 350px;
 }
-.clicked{
-    border: 5px solid #FBFE7B;
-    color: #FBFE7B;
-}
 /* Styles for Car Controls */
 .car-controls{
     display: none;
@@ -183,4 +179,8 @@ button{
 }
 img{
     width: 100%;
+}
+.clicked{
+    border: 5px solid #FBFE7B;
+    color: #FBFE7B;
 }

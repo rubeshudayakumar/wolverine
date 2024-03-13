@@ -37,10 +37,12 @@ const offEngineRemoveKey = (carAudio) => {
   carAudio.attr("src", "../assets/audio/car-off.mp3");
   carAudio.attr("loop", false);
   carAudio[0].play();
+  $(".power-button").addClass("clicked");
   setTimeout(() => {
     $(".dash-board-initial").css("display", "block");
     $(".dash-board-display").css("display", "none");
     $(".car-controls").css("display", "none");
+    $(".power-button").removeClass("clicked");
   }, 2000);
 };
 
