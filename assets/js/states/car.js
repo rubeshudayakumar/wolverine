@@ -10,6 +10,7 @@ class Car {
       fuel: 60,
       time: getCurrentTime(),
       speed: 0,
+      isEngineOn: false,
     };
     instance = this;
   }

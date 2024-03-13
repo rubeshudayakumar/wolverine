@@ -9,12 +9,14 @@ $(document).ready(async () => {
   var lastKeyPressTime = 0;
   var lastKeyCode = null;
   const timeout = 300;
+
   const keyActions = {
     s: engine.start,
     e: engine.off,
     a: controls.accelerate,
     b: controls.brake,
     h: controls.horn,
+    r: engine.refill,
   };
 
   TweenMax.set(".road", {

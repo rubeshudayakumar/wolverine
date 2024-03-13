@@ -212,3 +212,13 @@ img{
     margin-bottom: 80px;
     background: #fff;
 }
+.warning{
+    display: none;
+    margin-top: -10px;
+    color: #F59538;
+    text-align: center;
+    font-size: 12px;
+}
+.speed-container{
+    margin-right: 50px;
+}

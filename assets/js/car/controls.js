@@ -4,6 +4,7 @@ const controls = {
   rotateWheelLeft: () => rotateWheelLeft(),
   rotateWheelRight: () => rotateWheelRight(),
   horn: () => horn(),
+  stop: () => stop(),
 };
 
 let $speed = 0.9;
@@ -12,6 +13,7 @@ let $con = 0;
 let playbackRate = 1;
 let isAccelerated = false;
 let $carSpeed = 40;
+
 const accelerate = () => {
   if ($speed > 0.2) {
     $speed -= 0.1;
@@ -47,6 +49,9 @@ const accelerate = () => {
     }
     const countdownInterval = setInterval(function () {
       $(".speedometer").text(count);
+      if (count > 80) {
+        $(".warning").css("display", "block");
+      }
       if (count >= $carSpeed) {
         clearInterval(countdownInterval);
       }
@@ -74,10 +79,26 @@ const brake = () => {
       if (count <= 0) {
         clearInterval(countdownInterval);
       }
+      if (count < 80) {
+        $(".warning").css("display", "none");
+      }
     }, 1);
     $carSpeed = 40;
   }
   $(".break-button").addClass("clicked");
+  const carAudio = $("#car-audio");
+  setTimeout(() => {
+    carAudio.attr("src", "../assets/audio/car-idle.mp3").attr("loop", true);
+    carAudio[0].play();
+  }, 1000);
+};
+
+const stop = () => {
+  if (roadAnimation) {
+    TweenMax.killTweensOf(".line div");
+    TweenMax.set(".line div", { clearProps: "all" });
+    $speed = 0.9;
+  }
 };
 
 const rotateWheelLeft = () => {
@@ -119,6 +140,12 @@ const rotateWheelRight = () => {
 };
 
 const horn = () => {
+  $(".speaker-button > img").attr("src", "../assets/icons/volume-2.png");
+  $(".speaker-button").addClass("clicked");
+  setTimeout(() => {
+    $(".speaker-button").removeClass("clicked");
+    $(".speaker-button > img").attr("src", "../assets/icons/volume.png");
+  }, 1000);
   $("#car-horn")[0].play();
 };
 
