@@ -16,30 +16,39 @@ $(document).ready(async () => {
     e: engine.off,
   };
 
-  var rotateInterval;
+  var rotateInterval = false;
+  var leftInterval;
+  var rightInterval;
 
   $(document).on("keydown", function (e) {
-    if (e.keyCode == 37) {
-      rotateInterval = setInterval(controls.rotateWheelLeft, 500);
-      console.log("hii");
+    if (e.keyCode == 37 && !rotateInterval) {
+      leftInterval = setInterval(controls.rotateWheelLeft, 50);
+      rotateInterval = true;
+      $(".left-button").addClass("clicked");
     }
   });
 
   $(document).on("keyup", function (e) {
     if (e.keyCode == 37) {
-      clearInterval(rotateInterval);
+      clearInterval(leftInterval);
+      rotateInterval = false;
+      $(".left-button").removeClass("clicked");
     }
   });
 
   $(document).on("keydown", function (e) {
-    if (e.keyCode == 39) {
-      rotateInterval = setInterval(controls.rotateWheelRight, 500);
+    if (e.keyCode == 39 && !rotateInterval) {
+      rightInterval = setInterval(controls.rotateWheelRight, 50);
+      rotateInterval = true;
+      $(".right-button").addClass("clicked");
     }
   });
 
   $(document).on("keyup", function (e) {
     if (e.keyCode == 39) {
-      clearInterval(rotateInterval);
+      clearInterval(rightInterval);
+      rotateInterval = false;
+      $(".right-button").removeClass("clicked");
     }
   });
 
