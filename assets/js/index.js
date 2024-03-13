@@ -6,15 +6,30 @@ import controls from "./car/controls.js";
 
 $(document).ready(async () => {
   const weatherData = await getWeather();
-
   var lastKeyPressTime = 0;
   var lastKeyCode = null;
   const timeout = 300;
-
   const keyActions = {
     s: engine.start,
     e: engine.off,
+    a: controls.accelerate,
+    b: controls.brake,
   };
+
+  TweenMax.set('.road', {
+    perspective: 300
+})
+
+TweenMax.set('.line', {
+    transformOrigin: 'center top',
+    rotationX: 58,
+    scale: .25
+})
+TweenMax.to('.line', 2, {
+    rotationY: 0,
+    yoyo: true,
+    ease: Power2.easeInOut
+})
 
   var rotateInterval = false;
   var leftInterval;

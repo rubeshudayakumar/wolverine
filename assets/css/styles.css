@@ -184,3 +184,27 @@ img{
     border: 5px solid #FBFE7B;
     color: #FBFE7B;
 }
+
+.wrap{
+    
+    position: absolute;
+    top:300px;
+    left:290px;
+    width: 1150px;
+    z-index: -1;
+    height: 400px;
+    background: #024E56;
+    overflow: hidden;
+    
+}
+.road{
+    width: 30px;
+    height: 300px;
+    margin: auto;
+}
+.line div{
+    width: 30px;
+    height: 150px;
+    margin-bottom: 80px;
+    background: #fff;
+}
