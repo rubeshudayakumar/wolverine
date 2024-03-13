@@ -74,11 +74,7 @@ const brake = () => {
   if (!engine.getState().isEngineOn) {
     return;
   }
-  if (roadAnimation) {
-    TweenMax.killTweensOf(".line div");
-    TweenMax.set(".line div", { clearProps: "all" });
-    $speed = 0.9;
-  }
+
   if (isAccelerated) {
     isAccelerated = false;
     let carAudio = document.getElementById("car-audio");
@@ -86,16 +82,22 @@ const brake = () => {
     carAudio.loop = false;
     carAudio.play();
     let count = $carSpeed;
+
     const countdownInterval = setInterval(function () {
       count--;
       $(".speedometer").text(count);
       if (count <= 0) {
         clearInterval(countdownInterval);
+        if (roadAnimation) {
+          TweenMax.killTweensOf(".line div");
+          TweenMax.set(".line div", { clearProps: "all" });
+          $speed = 0.9;
+        }
       }
       if (count < 80) {
         $(".warning").css("display", "none");
       }
-    }, 1);
+    }, 20);
     $carSpeed = 40;
   }
   $(".break-button").addClass("clicked");

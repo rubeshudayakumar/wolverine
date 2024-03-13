@@ -15,9 +15,6 @@ export const getGreetMessage = () => {
   var hours = currentTime.getHours();
   var minutes = currentTime.getMinutes();
 
-  console.log(hours);
-  console.log(minutes);
-
   if (hours >= 5 && hours <= 12) {
     if (hours == 12 && minutes == 0) {
       $(".time-wish").text("Good Morning");
