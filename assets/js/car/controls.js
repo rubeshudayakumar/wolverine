@@ -46,11 +46,11 @@ const accelerate = () => {
       $carSpeed = 280;
     }
     const countdownInterval = setInterval(function () {
-      count++;
       $(".speedometer").text(count);
       if (count >= $carSpeed) {
         clearInterval(countdownInterval);
       }
+      count++;
     }, 50);
   }
 };
@@ -75,6 +75,7 @@ const brake = () => {
         clearInterval(countdownInterval);
       }
     }, 1);
+    $carSpeed = 40;
   }
   $(".break-button").addClass("clicked");
 };
