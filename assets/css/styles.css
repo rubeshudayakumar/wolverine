@@ -194,11 +194,10 @@ img{
 .wrap{
     position: absolute;
     top: 286px;
-    left: 699px;
-    width: 318px;
+    left: 649px;
+    width: 416px;
     z-index: 1;
     height: 98px;
-    background: #07565D;
     overflow: hidden;
 }
 .road{
@@ -232,14 +231,29 @@ img{
     left: 675px;
     width: 305px;
     height: 200px;
-  }
-  #player {
+}
+#player {
     width: 360px;
     height: 171px;
     object-fit: cover;
     border-radius: 21%;
     border: 4px solid #000;
-  }
-  #output {
+}
+#output {
     display: none;
-  }
+}
+.hide-road{
+    position: absolute;
+    left: 188px;
+    width: 52px;
+    height: 98px;
+    background-color: #07565D;
+}
+.camera-button-active{
+    border: 5px solid #FBFE7B;
+    background-color: #25A9BA;
+}
+.power-music{
+    display: flex;
+    align-items: center;
+}

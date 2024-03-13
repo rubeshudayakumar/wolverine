@@ -2,13 +2,14 @@ import engine from "./engine/engine.js";
 import { DOUBLE_INPUT_KEYS } from "./constants/appConstants.js";
 import { getWeather } from "./api/weather.js";
 import controls from "./car/controls.js";
-import { getCurrentTime } from "./utils/dateUtils.js";
+import { getCurrentTime, getGreetMessage } from "./utils/dateUtils.js";
+import Engine from "./states/engineState.js";
 
 $(document).ready(async () => {
   getWeather();
   var lastKeyPressTime = 0;
   var lastKeyCode = null;
-  const timeout = 300;
+  const timeout = 1000;
 
   const keyActions = {
     s: engine.start,
@@ -18,7 +19,7 @@ $(document).ready(async () => {
     h: controls.horn,
     r: engine.refill,
     c: controls.mirror,
-
+    m: controls.music,
   };
 
   TweenMax.set(".road", {
@@ -43,6 +44,10 @@ $(document).ready(async () => {
   setInterval(() => {
     $(".current-time").text(getCurrentTime());
   }, 1000 * 60);
+
+  getGreetMessage();
+
+  setInterval(() => getGreetMessage(), 1000 * 60 * 60);
 
   $(document).on("keydown", function (e) {
     if (e.keyCode == 37 && !rotateInterval) {
@@ -73,6 +78,7 @@ $(document).ready(async () => {
       $(".right-button").addClass("clicked");
     }
   });
+  const engineState = new Engine();
 
   $(document).on("keyup", function (e) {
     if (e.keyCode == 39) {

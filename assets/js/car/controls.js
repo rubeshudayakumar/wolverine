@@ -1,3 +1,5 @@
+import Engine from "../states/engineState.js";
+
 const controls = {
   accelerate: () => accelerate(),
   brake: () => brake(),
@@ -6,6 +8,7 @@ const controls = {
   horn: () => horn(),
   stop: () => stop(),
   mirror: () => mirror(),
+  music: () => music(),
 };
 
 let $speed = 0.9;
@@ -14,8 +17,13 @@ let $con = 0;
 let playbackRate = 1;
 let isAccelerated = false;
 let $carSpeed = 40;
+let isMusicOn = false;
 
 const accelerate = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   if ($speed > 0.2) {
     $speed -= 0.1;
   }
@@ -62,6 +70,10 @@ const accelerate = () => {
 };
 
 const brake = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   if (roadAnimation) {
     TweenMax.killTweensOf(".line div");
     TweenMax.set(".line div", { clearProps: "all" });
@@ -103,6 +115,10 @@ const stop = () => {
 };
 
 const rotateWheelLeft = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   const rotationSpeed = 5;
   var carWheel = $(".steering-wheel");
   var currentRotation = parseInt(carWheel.data("rotation"));
@@ -122,6 +138,10 @@ const rotateWheelLeft = () => {
 };
 
 const rotateWheelRight = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   const rotationSpeed = 5;
   var carWheel = $(".steering-wheel");
   var currentRotation = parseInt(carWheel.data("rotation"));
@@ -141,6 +161,10 @@ const rotateWheelRight = () => {
 };
 
 const horn = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   $(".speaker-button > img").attr("src", "../assets/icons/volume-2.png");
   $(".speaker-button").addClass("clicked");
   setTimeout(() => {
@@ -151,6 +175,10 @@ const horn = () => {
 };
 var toggle = true;
 const mirror = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   const outputCanvas = document.getElementById("output");
   const context = outputCanvas.getContext("2d");
   const container = document.querySelector("#container");
@@ -165,8 +193,18 @@ const mirror = () => {
         const tracks = mediaStream.getTracks();
         tracks[0].stop();
         container.style.display = "none";
+        $(".camera-button").removeClass("camera-button-active");
+        $(".camera-button > img").attr(
+          "src",
+          "../assets/icons/camera-grey.png"
+        );
       } else {
         container.style.display = "block";
+        $(".camera-button").addClass("camera-button-active");
+        $(".camera-button > img").attr(
+          "src",
+          "../assets/icons/camera-navy.png"
+        );
       }
       toggle = !toggle;
       player.srcObject = stream;
@@ -174,6 +212,26 @@ const mirror = () => {
     .catch((error) => {
       console.error("Can not get an access to a camera...", error);
     });
+};
+
+const music = () => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
+  if (isMusicOn) {
+    $(".music-button > img").attr("src", "../assets/icons/song-disabled.png");
+    $(".music-button").removeClass("clicked");
+    $("#car-music").attr("src", "");
+    $("#car-music")[0].play();
+    isMusicOn = false;
+  } else {
+    $(".music-button > img").attr("src", "../assets/icons/song.png");
+    $(".music-button").addClass("clicked");
+    $("#car-music").attr("src", "./assets/audio/car-music.mp3");
+    $("#car-music")[0].play();
+    isMusicOn = true;
+  }
 };
 
 export default controls;

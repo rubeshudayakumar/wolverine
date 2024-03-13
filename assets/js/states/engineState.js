@@ -1,15 +1,11 @@
-import { getCurrentTime } from "../utils/dateUtils.js";
-
 let instance;
-class Car {
+class Engine {
   constructor() {
     if (instance) {
       return instance;
     }
     this.state = {
-      fuel: 60,
-      time: getCurrentTime(),
-      speed: 0,
+      isEngineOn: false,
     };
     instance = this;
   }
@@ -23,4 +19,4 @@ class Car {
   }
 }
 
-export default Car;
+export default Engine;

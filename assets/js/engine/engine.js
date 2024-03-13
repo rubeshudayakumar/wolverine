@@ -1,5 +1,6 @@
 import controls from "../car/controls.js";
 import Car from "../states/car.js";
+import Engine from "../states/engineState.js";
 
 const engine = {
   start: (key) => startEngine(key),
@@ -39,6 +40,9 @@ const startEngine = (carAudio) => {
     $(".car-controls").css("display", "block");
   }, 3000);
 
+  const engine = new Engine();
+  engine.setState({ isEngineOn: true });
+
   fuelConsumption = setInterval(() => {
     if (currentPercentage > 0) {
       currentMinute += 1;
@@ -65,6 +69,10 @@ const startEngine = (carAudio) => {
 };
 
 const offEngineRemoveKey = (carAudio) => {
+  const engine = new Engine();
+  if (!engine.getState().isEngineOn) {
+    return;
+  }
   carAudio.attr("src", "../assets/audio/car-off.mp3");
   carAudio.attr("loop", false);
   carAudio[0].play();
@@ -77,6 +85,8 @@ const offEngineRemoveKey = (carAudio) => {
     controls.stop();
   }, 2000);
   clearInterval(fuelConsumption);
+
+  engine.setState({ isEngineOn: false });
 };
 
 const refill = () => {

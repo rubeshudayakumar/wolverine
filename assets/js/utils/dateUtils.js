@@ -9,3 +9,28 @@ export const getCurrentTime = () => {
   var currentTimeString = hours + ":" + minutes + " " + ampm;
   return currentTimeString;
 };
+
+export const getGreetMessage = () => {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+
+  console.log(hours);
+  console.log(minutes);
+
+  if (hours >= 5 && hours <= 12) {
+    if (hours == 12 && minutes == 0) {
+      $(".time-wish").text("Good Morning");
+    } else {
+      $(".time-wish").text("Good Afternoon");
+    }
+  } else if (hours >= 12 && hours <= 18) {
+    if (hours == 18 && minutes == 0) {
+      $(".time-wish").text("Good Afternoon");
+    } else {
+      $(".time-wish").text("Good Evening");
+    }
+  } else {
+    $(".time-wish").text("Good Evening");
+  }
+};
