@@ -17,6 +17,8 @@ $(document).ready(async () => {
     b: controls.brake,
     h: controls.horn,
     r: engine.refill,
+    c: controls.mirror,
+
   };
 
   TweenMax.set(".road", {

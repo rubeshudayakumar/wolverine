@@ -5,6 +5,8 @@ const controls = {
   rotateWheelRight: () => rotateWheelRight(),
   horn: () => horn(),
   stop: () => stop(),
+  mirror: () => mirror(),
+
 };
 
 let $speed = 0.9;
@@ -148,5 +150,20 @@ const horn = () => {
   }, 1000);
   $("#car-horn")[0].play();
 };
+var toggle=true;
+const mirror = () => {
+  const outputCanvas = document.getElementById('output');
+  const context = outputCanvas.getContext('2d');
+  const container=document.querySelector("#container");
+  navigator.mediaDevices
+    .getUserMedia({ video: true })
+    .then((stream) => {
+      toggle=!toggle;
+      player.srcObject = stream;
+    }).catch(error => {
+      console.error('Can not get an access to a camera...', error);
+    });
+   
+  };
 
 export default controls;

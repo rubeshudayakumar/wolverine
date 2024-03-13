@@ -222,3 +222,20 @@ img{
 .speed-container{
     margin-right: 50px;
 }
+
+#container {
+    max-width: 80vw;
+    max-height: 80vh;
+    position: absolute;
+    top:63px;
+    left: 714px;
+    width:305px;
+    height: 200px;
+  }
+  #player {
+    width: 305px;
+    height: 150px;
+  }
+  #output {
+    display: none;
+  }
