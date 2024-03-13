@@ -21,6 +21,12 @@
 	&emsp;Press "H" to get horn sound.\
 	&emsp;Press "M" to play Music in the car. It is kept as a toggle Button.\
         &emsp;Press "L" to switch on HeadLight for the car.
+
+
+ **Weather and Dashboard Functionality And Greeting** \
+        &emsp;1. Weather will be fetched based on user location it will show feels like weather from 3rd party weather API.\
+	&emsp;2. Greeting messages like Good Morning,Good Evening and Good Afternoon will be shown based on user time line.\
+        &emsp;3. Current time will be shown to the user.
  
 
 **Features/Working :**\
@@ -57,4 +63,6 @@
 	&emsp;30. When the key is pressed the Sound Icon changes and is highlighted.\
         &emsp;31. When the 'L' key is pressed it Switched on the head light of the car and it can be toggled.\
 	&emsp;32. When the key is pressed the Light Icon changes and is highlighted.
+
+ 
 	
