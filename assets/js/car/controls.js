@@ -39,7 +39,7 @@ const accelerate = () => {
   $(".accelator-button").addClass("clicked");
   let carAudio = document.getElementById("car-audio");
   if (!isAccelerated) {
-    carAudio.setAttribute("src", "../assets/audio/car-acceleration.mp3");
+    carAudio.setAttribute("src", "./assets/audio/car-acceleration.mp3");
     carAudio.loop = true;
     carAudio.playbackRate = playbackRate;
     isAccelerated = true;
@@ -80,7 +80,7 @@ const brake = () => {
   if (isAccelerated) {
     isAccelerated = false;
     let carAudio = document.getElementById("car-audio");
-    carAudio.setAttribute("src", "../assets/audio/car-brake.mp3");
+    carAudio.setAttribute("src", "./assets/audio/car-brake.mp3");
     carAudio.loop = false;
     carAudio.play();
     let count = $carSpeed;
@@ -105,7 +105,7 @@ const brake = () => {
   $(".break-button").addClass("clicked");
   const carAudio = $("#car-audio");
   setTimeout(() => {
-    carAudio.attr("src", "../assets/audio/car-idle.mp3").attr("loop", true);
+    carAudio.attr("src", "./assets/audio/car-idle.mp3").attr("loop", true);
     carAudio[0].play();
   }, 1000);
 };
@@ -169,11 +169,11 @@ const horn = () => {
   if (!engine.getState().isEngineOn) {
     return;
   }
-  $(".speaker-button > img").attr("src", "../assets/icons/volume-2.png");
+  $(".speaker-button > img").attr("src", "./assets/icons/volume-2.png");
   $(".speaker-button").addClass("clicked");
   setTimeout(() => {
     $(".speaker-button").removeClass("clicked");
-    $(".speaker-button > img").attr("src", "../assets/icons/volume.png");
+    $(".speaker-button > img").attr("src", "./assets/icons/volume.png");
   }, 1000);
   $("#car-horn")[0].play();
 };
@@ -198,17 +198,11 @@ const mirror = () => {
         tracks[0].stop();
         container.style.display = "none";
         $(".camera-button").removeClass("camera-button-active");
-        $(".camera-button > img").attr(
-          "src",
-          "../assets/icons/camera-grey.png"
-        );
+        $(".camera-button > img").attr("src", "./assets/icons/camera-grey.png");
       } else {
         container.style.display = "block";
         $(".camera-button").addClass("camera-button-active");
-        $(".camera-button > img").attr(
-          "src",
-          "../assets/icons/camera-navy.png"
-        );
+        $(".camera-button > img").attr("src", "./assets/icons/camera-navy.png");
       }
       toggle = !toggle;
       player.srcObject = stream;
@@ -224,13 +218,13 @@ const music = () => {
     return;
   }
   if (isMusicOn) {
-    $(".music-button > img").attr("src", "../assets/icons/song-disabled.png");
+    $(".music-button > img").attr("src", "./assets/icons/song-disabled.png");
     $(".music-button").removeClass("clicked");
     $("#car-music").attr("src", "");
     $("#car-music")[0].play();
     isMusicOn = false;
   } else {
-    $(".music-button > img").attr("src", "../assets/icons/song.png");
+    $(".music-button > img").attr("src", "./assets/icons/song.png");
     $(".music-button").addClass("clicked");
     $("#car-music").attr("src", "./assets/audio/car-music.mp3");
     $("#car-music")[0].play();
@@ -245,12 +239,12 @@ const light = () => {
   }
   if (isHeadLightOn) {
     $(".light-button").removeClass("clicked");
-    $(".light-button > img").attr("src", "../assets/icons/light-off.png");
+    $(".light-button > img").attr("src", "./assets/icons/light-off.png");
     $(".head-light-container").toggleClass("light-toggle");
     isHeadLightOn = false;
   } else {
     $(".light-button").addClass("clicked");
-    $(".light-button > img").attr("src", "../assets/icons/light-on.png");
+    $(".light-button > img").attr("src", "./assets/icons/light-on.png");
     $(".head-light-container").toggleClass("light-toggle");
     isHeadLightOn = true;
   }

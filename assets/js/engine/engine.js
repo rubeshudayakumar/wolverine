@@ -13,10 +13,10 @@ let currentPercentage = 100;
 let fuelConsumption;
 
 const startEngine = (carAudio) => {
-  carAudio.attr("src", "../assets/audio/car-start.mp3");
+  carAudio.attr("src", "./assets/audio/car-start.mp3");
   carAudio[0].play();
   setTimeout(() => {
-    carAudio.attr("src", "../assets/audio/car-idle.mp3");
+    carAudio.attr("src", "./assets/audio/car-idle.mp3");
     carAudio.attr("loop", true);
     carAudio[0].play();
   }, 2500);
@@ -28,7 +28,7 @@ const startEngine = (carAudio) => {
   }, 2000);
 
   const car = new Car();
-  $(".speaker-button").attr("src", "../assets/audio/volume-2.png");
+  $(".speaker-button").attr("src", "./assets/audio/volume-2.png");
 
   $(".current-time").text(car.getState().time);
   $(".gas-litre-count").text(car.getState().fuel);
@@ -51,7 +51,7 @@ const startEngine = (carAudio) => {
       if (currentPercentage <= 80 && currentPercentage >= 60) {
         $(".nitro-button > img").attr(
           "src",
-          "../assets/icons/nitro-power-orange.png"
+          "./assets/icons/nitro-power-orange.png"
         );
         $(".gas-bar").css("background-color", "#F9F88D");
       } else if (currentPercentage <= 60 && currentPercentage >= 40) {
@@ -73,7 +73,7 @@ const offEngineRemoveKey = (carAudio) => {
   if (!engine.getState().isEngineOn) {
     return;
   }
-  carAudio.attr("src", "../assets/audio/car-off.mp3");
+  carAudio.attr("src", "./assets/audio/car-off.mp3");
   carAudio.attr("loop", false);
   carAudio[0].play();
   $(".power-button").addClass("clicked");
@@ -99,7 +99,7 @@ const refill = () => {
   $(".gas-bar").css("background-color", "#61A943");
   $(".gas-bar").css("width", "100%");
   $(".gas-litre-count").text(60);
-  $(".nitro-button > img").attr("src", "../assets/icons/nitro-power-green.png");
+  $(".nitro-button > img").attr("src", "./assets/icons/nitro-power-green.png");
   setTimeout(() => {
     $(".nitro-button").removeClass("clicked");
   }, 1000);
